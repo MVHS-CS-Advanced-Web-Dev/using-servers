@@ -3,6 +3,7 @@ interface ProductsListProps {
 }
 
 const ProductsList = ({ products }: ProductsListProps) => {
+  // loop through products and show each one
   return (
     <>
       {products.map((item: string, index: number) => (

@@ -3,7 +3,9 @@ import ProductsList from './components/products-list';
 import './app.css';
 
 const App = () => {
+  // port variable
   const [port, setPort] = useState<number>(8000);
+  // products
   const [products, setProducts] = useState<string[]>([]);
   const [adding, setAdding] = useState<boolean>(false);
   const [newProduct, setNewProduct] = useState<string>('');
@@ -12,7 +14,9 @@ const App = () => {
     setPort(e.currentTarget.value);
   };
 
+  // send the request to localhost at the port
   const sendRequest = () => {
+    // .then for handling promise results
     fetch(`http://localhost:${port}`)
       .then((res) => res.json())
       .then((data) => {
@@ -29,6 +33,8 @@ const App = () => {
   };
 
   const sendNewProduct = () => {
+    // send post request with the new product
+    // body must be a string, stringified object in this case
     const obj = { newProduct };
     console.log(obj);
     fetch(`http://localhost:${port}`, {
